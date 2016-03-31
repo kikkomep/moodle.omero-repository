@@ -43,11 +43,16 @@ class omero extends confidential_oauth2_client
     /**
      * Constructor for omero class
      *
-     * @param array $options
+     * @param string $client_id
+     * @param string $client_secret
+     * @param moodle_url $moodle_url
+     * @param string $scope
+     * @throws dml_exception
+     * @internal param array $options
      */
-    function __construct($options = array())
+    public function __construct($client_id, $client_secret, moodle_url $moodle_url, $scope = "read")
     {
-        parent::__construct($this->get_config($options));
+        parent::__construct($client_id, $client_secret, $moodle_url, $scope);
         $this->omero_api = get_config('omero', 'omero_restendpoint');
     }
 
