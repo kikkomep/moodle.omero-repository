@@ -30,7 +30,7 @@ require_once($CFG->libdir . '/oauthlib.php');
  * @copyright  2015-2016 CRS4
  * @license    https://opensource.org/licenses/mit-license.php MIT license
  */
-class omero extends oauth_helper
+class omero extends confidential_oauth2_client
 {
     /** @var string omero access type, can be omero or sandbox */
     private $mode = 'omero';
