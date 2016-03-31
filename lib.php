@@ -144,8 +144,16 @@ class repository_omero extends repository
             'api_root' => $this->omero_restendpoint,
         );
 
+
+       
+
         // instantiate the omero client
-        $this->omero = new omero($args);
+        $this->omero = new omero(
+            $this->omero_key,
+            $this->omero_secret,
+            new moodle_url("$CFG->wwwroot/moodle/question/question.php"), // TODO: to remove because
+            "read"
+        );
 
         // set cache references
         $this->requests = cache::make('repository_omero', 'repository_info_cache');
